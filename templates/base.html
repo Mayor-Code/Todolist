@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base Page</title>
+    <style>
+        h1 {
+            color: lightblue;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        p {
+            color: green;
+            text-align: center;
+        }
+        button {
+            background: red;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+{% if user.is_authenticated %}
+<h1> Welcome {{user.username}}</h1>
+<p>You have successfully logged in</p>
+<button onclick="window.location.href='{% url 'todoList:logout' %}'">Logout</button>
+{% endif %}
+{% block content %}
+{% endblock %}
+</body>
+</html>
